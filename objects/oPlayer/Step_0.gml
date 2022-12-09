@@ -95,6 +95,8 @@ if(horizontalSpeed != 0) {
 #region Camera Manipulation
 if(_mouse_left_click) {
 	
+	view_set_camera(view_hport[0], nextCamera);
+	
 	//currentCamera = view_current + 1;
 	currentCamera = view_get_camera(view_current);
 	nextCamera = currentCamera + 1;
@@ -104,6 +106,6 @@ if(_mouse_left_click) {
 	}
 
 	//view_camera[currentCamera];
-	view_set_camera(view_current, nextCamera);	
+	// 	
 }
 #endregion

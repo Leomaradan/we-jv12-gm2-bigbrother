@@ -14,6 +14,7 @@
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
     {"id":{"name":"sWarp","path":"sprites/sWarp/sWarp.yy",},"order":3,},
     {"id":{"name":"oDamage","path":"objects/oDamage/oDamage.yy",},"order":2,},
+    {"id":{"name":"debugGUI","path":"scripts/debugGUI/debugGUI.yy",},"order":1,},
     {"id":{"name":"manageCamera","path":"scripts/manageCamera/manageCamera.yy",},"order":0,},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},"order":1,},
     {"id":{"name":"sCamera","path":"sprites/sCamera/sCamera.yy",},"order":8,},

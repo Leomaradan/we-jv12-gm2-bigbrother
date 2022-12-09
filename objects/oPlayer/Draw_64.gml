@@ -19,22 +19,30 @@ _affectedByGravity = _onLadder || _onRope; // Indicate if the gravity must be ac
 */
 
 
+draw_flush();
 
 draw_set_color(c_white);
-draw_text(50,50,"_key_left: " + string(_key_left));
-draw_text(50,70,"_key_right: " + string(_key_right));
-draw_text(50,90,"_key_jump: " + string(_key_jump));
-draw_text(50,110,"_key_interract: " + string(_key_interract));
-draw_text(50,130,"_key_up: " + string(_key_up));
-draw_text(50,150,"_key_down: " + string(_key_down));
-draw_text(50,170,"_move: " + string(_move));
-draw_text(50,190,"_touchingFloor: " + string(_touchingFloor));
-draw_text(50,210,"_onLadder: " + string(_onLadder));
-draw_text(50,230,"_canTakeRope: " + string(_canTakeRope));
-draw_text(50,250,"_affectedByGravity: " + string(_affectedByGravity));
+var variables = [
+	["_key_left", _key_left],
+	["_key_right", _key_right],
+	["_key_jump", _key_jump],
+	["_key_interract", _key_interract],
+	["_key_up", _key_up],
+	["_key_down", _key_down],
+	["_move", _move],
+	["_touchingFloor", _touchingFloor],
+	["_onLadder", _onLadder],
+	["_canTakeRope", _canTakeRope],
+	["_affectedByGravity", _affectedByGravity],
+	["_mouse_left_click", _mouse_left_click],
+	["horizontalSpeed", horizontalSpeed],
+	["verticalSpeed", verticalSpeed],
+	["onRope", onRope],
+	["currentCamera", currentCamera],
+	["nextCamera", nextCamera],
+	["FIRST_CAMERA", FIRST_CAMERA],
+	["LAST_CAMERA", LAST_CAMERA]
+];
 
-draw_text(50,270,"horizontalSpeed: " + string(horizontalSpeed));
-draw_text(50,290,"verticalSpeed: " + string(verticalSpeed));
-draw_text(50,310,"onRope: " + string(onRope));
-draw_text(50,330,"currentCamera: " + string(currentCamera));
-draw_text(50,350,"nextCamera: " + string(nextCamera));
+array_map(variables, debugGUI);
+
