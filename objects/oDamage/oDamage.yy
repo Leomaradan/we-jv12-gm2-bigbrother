@@ -7,7 +7,7 @@
     "path": "sprites/sDamage/sDamage.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,

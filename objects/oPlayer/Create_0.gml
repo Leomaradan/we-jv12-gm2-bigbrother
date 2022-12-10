@@ -9,13 +9,38 @@ jumpSpeed = 5;
 hasControl = true;
 onRope = false;
 
-currentCamera = 10; // view_get_camera(view_current);
-nextCamera = currentCamera + 1;
+//currentCamera = 10; // view_get_camera(view_current);
+currentCameraIndex = -1// view_get_camera(view_current);
+activeCamera = 0;
 
-var NB_CAMERA = 2;
-FIRST_CAMERA = 10; //currentCamera + 1;
+currentCamerasObject = [];
+
+/*var NB_CAMERA = 2;
+FIRST_CAMERA = currentCamera + 1;
 LAST_CAMERA = FIRST_CAMERA + NB_CAMERA;
-CAMERAS = [10, 11];
 
-view_set_camera(view_hport[0], FIRST_CAMERA);
+view_set_camera(view_hport[0], FIRST_CAMERA);*/
 
+#region Keyboard remapping
+keyboard_set_map(ord("W"), vk_up);
+keyboard_set_map(ord("Z"), vk_up);
+
+keyboard_set_map(ord("A"), vk_left);
+keyboard_set_map(ord("Q"), vk_left);
+
+keyboard_set_map(ord("S"), vk_down);
+
+keyboard_set_map(ord("D"), vk_right);
+#endregion
+
+enum ActionStates {
+	IDLE,
+	WALK,
+	ROPE,
+	CLIMB,
+	JUMP_FALL,
+	INTERRACT,
+	DEAD
+}
+
+state = ActionStates.IDLE;
