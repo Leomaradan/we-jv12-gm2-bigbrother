@@ -32,7 +32,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "LevelDesign",
+    "path": "folders/Objects/LevelDesign.yy",
   },
 }

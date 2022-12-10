@@ -31,6 +31,7 @@ _move = _key_right - _key_left; // Calculate movement.
 _touchingFloor = place_meeting(x, y+1, oWall);
 _onLadder = place_meeting(x, y+1, oLadder);
 _canTakeRope = place_meeting(x, y-16, oRope);
+_canUseComputer = place_meeting(x, y+1, oComputer);
 
 _affectedByGravity = !(_onLadder || onRope); // Indicate if the gravity must be active (not active in ladder and rope)
 
@@ -58,6 +59,29 @@ if ((_touchingFloor || _canTakeRope) && _key_jump) {
 if (_touchingFloor && _canTakeRope && (_key_interract || _key_up)) {
 	onRope = true;
 }
+
+/*if(_canUseComputer && greenKey && _key_interract && cooldownInterraction = -1) {
+	state = ActionStates.INTERRACT;	
+	cooldownInterraction = 60;
+}*/
+if(_canUseComputer && greenKey && _key_interract && cooldownInterraction = -1) {
+	cooldownInterraction = 60;
+}
+
+if(cooldownInterraction >= 0) {
+	state = ActionStates.INTERRACT;	
+	cooldownInterraction--;
+}
+
+if(_canUseComputer && greenKey && cooldownInterraction == 0) {
+	cooldownInterraction = -1;
+	with(oComputerGreen) {
+		useComputer();
+	}
+	greenKey = false;
+}
+
+
 
 if (onRope) {
 	state = ActionStates.ROPE;
@@ -152,6 +176,7 @@ switch(state) {
 		break;	
 	}
 	case ActionStates.INTERRACT: {
+		sprite_index = sPlayerJohnInterraction;
 		break;	
 	}
 	case ActionStates.DEAD: {

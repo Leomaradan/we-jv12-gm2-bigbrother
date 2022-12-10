@@ -1,6 +1,6 @@
 /// @description Key pickup
 
-var _instancesNumber = instance_number(oDoorGreen);
+/* var _instancesNumber = instance_number(oDoorGreen);
 var _instances = [];
 
 for (var i = 0; i < _instancesNumber; ++i;)
@@ -11,6 +11,10 @@ for (var i = 0; i < _instancesNumber; ++i;)
 for (var i = 0; i < _instancesNumber; ++i;)
 {
 	instance_destroy(_instances[i]);
-}
+}*/
 
 instance_destroy();
+
+with(other) {
+	greenKey = true;
+}

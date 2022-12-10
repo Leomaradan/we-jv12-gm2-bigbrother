@@ -15,6 +15,9 @@ activeCamera = 0;
 
 currentCamerasObject = [];
 
+greenKey = false;
+cooldownInterraction = -1;
+
 /*var NB_CAMERA = 2;
 FIRST_CAMERA = currentCamera + 1;
 LAST_CAMERA = FIRST_CAMERA + NB_CAMERA;

@@ -19,6 +19,7 @@ variables = [
 	["_mouse_left_click", _mouse_left_click],*/
 	["horizontalSpeed", horizontalSpeed],
 	["verticalSpeed", verticalSpeed],
+	["greenKey", greenKey],
 	// ["onRope", onRope],
 	/*["currentCameraIndex", currentCameraIndex],
 	["activeCamera", activeCamera],
