@@ -35,6 +35,8 @@ _canUseComputer = place_meeting(x, y+1, oComputer);
 
 _affectedByGravity = !(_onLadder || onRope); // Indicate if the gravity must be active (not active in ladder and rope)
 
+_offsetMeetingY = 0;
+
 if(_move != 0) {
 	state = ActionStates.WALK;	
 }
@@ -66,6 +68,7 @@ if (_touchingFloor && _canTakeRope && (_key_interract || _key_up)) {
 }*/
 if(_canUseComputer && greenKey && _key_interract && cooldownInterraction = -1) {
 	cooldownInterraction = 60;
+	hasControl = false;
 }
 
 if(cooldownInterraction >= 0) {
@@ -79,12 +82,14 @@ if(_canUseComputer && greenKey && cooldownInterraction == 0) {
 		useComputer();
 	}
 	greenKey = false;
+	hasControl = true;
 }
 
 
 
 if (onRope) {
 	state = ActionStates.ROPE;
+	_offsetMeetingY = -16;
 }
 
 if(_onLadder) {
@@ -112,14 +117,16 @@ if(onRope) {
 
 
 #region Calculate collisions
+meeting_horizontal = false;
+meeting_vertical = false;
 
-
-	if (place_meeting(x+horizontalSpeed, y, oBlock)) {
+	if (place_meeting(x+horizontalSpeed, y + _offsetMeetingY, oBlock)) {
 	// Sign will return -1 or 1 depending on the base sign of the input. So in this loop, we move 1px each time to fine the closest position
-		while (!place_meeting(x+sign(horizontalSpeed), y, oBlock)) {
+		while (!place_meeting(x+sign(horizontalSpeed), y + _offsetMeetingY, oBlock)) {
 			x = x + sign(horizontalSpeed);	
 		}
-		horizontalSpeed = 0;	
+		horizontalSpeed = 0;
+		meeting_horizontal = true;
 	
 	}
 	x = x + horizontalSpeed;	
@@ -130,6 +137,7 @@ if(onRope) {
 			y = y + sign(verticalSpeed);	
 		}
 		verticalSpeed = 0;
+		meeting_vertical = true;
 	}
 	y = y + verticalSpeed;
 #endregion
@@ -230,7 +238,7 @@ if(activeCamera != currentCameraIndex) {
 _previousCameraIndex = currentCameraIndex - 1;
 _nextCameraIndex = currentCameraIndex + 1;
 
-if(_previousCameraIndex <= 0) {
+if(_previousCameraIndex < 0) {
 	_previousCameraIndex = NB_CAMERA - 1;	
 }
 
