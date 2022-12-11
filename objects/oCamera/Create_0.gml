@@ -7,6 +7,14 @@ xTo = xstart;
 yTo = ystart;
 first = false;
 
+enum CameraStatus {
+	ACTIVE,
+	OFF,
+	JAMMED,
+}
+
+status = CameraStatus.ACTIVE;
+
 /*with(oPlayer) {
 	array_push(currentCamerasObject, other);
 }*/
