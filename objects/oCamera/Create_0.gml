@@ -14,6 +14,7 @@ enum CameraStatus {
 }
 
 status = CameraStatus.ACTIVE;
+cameraDetectionSpeed = 0;
 
 /*with(oPlayer) {
 	array_push(currentCamerasObject, other);

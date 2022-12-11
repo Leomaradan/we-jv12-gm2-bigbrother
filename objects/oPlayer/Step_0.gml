@@ -77,7 +77,7 @@ if (_touchingFloor && _canTakeRope && (_key_interract || _key_up)) {
 	cooldownInterraction = 60;
 }*/
 if(_canUseComputer && _key_interract && cooldownInterraction = -1) {
-	cooldownInterraction = 60;
+	cooldownInterraction = 30;
 	hasControl = false;
 }
 
@@ -93,7 +93,6 @@ if(_canUseComputer && cooldownInterraction == 0) {
 	with(computer) {
 		useComputer();
 	}
-	// greenKey = false;
 	hasControl = true;
 }
 
@@ -162,6 +161,13 @@ switch(state) {
 	case ActionStates.WALK: {
 		image_speed = 0.5;
 		sprite_index = sPlayerJohnWalk;	
+		if(previousState != state) {
+			stopAllSounds();
+			audio_play_sound(snWalk, 10, true, 0.5);
+		}
+		if(previousState == ActionStates.JUMP_FALL) {		
+			audio_play_sound(snFall, 10, false, 0.5);
+		}
 		break;	
 	}
 	case ActionStates.JUMP_FALL: {
@@ -175,26 +181,37 @@ switch(state) {
 			// Jumping animation
 			image_index = 0;	
 		}		
+		stopAllSounds();
 		break;	
 	}
 	case ActionStates.ROPE: {
 		sprite_index = sPlayerJohnRope;
+		stopAllSounds();
 		if(horizontalSpeed == 0) {
 			image_speed = 0;
 		} else {
-			// Running animation
+			// Rope animation
 			image_speed = 0.5;
+			if(previousState != state) {
+				audio_play_sound(snRope, 10, true, 0.5);
+			}
 		}
+		
 		break;	
 	}
 	case ActionStates.CLIMB: {
 		sprite_index = sPlayerJohnClimb;
+		stopAllSounds();
 		if(verticalSpeed == 0) {
 			image_speed = 0;
 		} else {
-			// Running animation
+			// Climb animation
 			image_speed = 0.5;
+			if(previousState != state) {
+				audio_play_sound(snClimb, 10, true, 0.5);
+			}
 		}		
+
 		break;	
 	}
 	case ActionStates.INTERRACT: {
@@ -207,9 +224,14 @@ switch(state) {
 	case ActionStates.IDLE: default: {
 		image_speed = 0.5;
 		sprite_index = sPlayerJohnIdle;	
+		stopAllSounds();
+		if(previousState == ActionStates.JUMP_FALL) {		
+			audio_play_sound(snFall, 10, false, 0.5);
+		}
 		break;	
 	}
 }
+previousState = state;
 
 if(horizontalSpeed != 0) {
 	// Change sprite orientation based on horizontal speed
@@ -225,19 +247,10 @@ NB_CAMERA = array_length(currentCamerasObject);
 // LAST_CAMERA = currentCamerasObject[NB_CAMERA - 1];
 // CURRENT_CAMERA = 0;
 
-if(changedCamera > 0) {
-	changedCamera--;	
-}
-
-if(changedCamera == 5) {
-	view_set_camera(view_hport[0], currentCamerasObject[currentCameraIndex].cam);
-}
 
 if(activeCamera != currentCameraIndex) {
 	if(currentCameraIndex == -1) {
-		
-		changedCamera = 5;
-		
+				
 		for (var i = 0; i < instance_number(oCamera); ++i;)
 		{
 		   array_push(currentCamerasObject, instance_find(oCamera, i));
@@ -252,11 +265,9 @@ if(activeCamera != currentCameraIndex) {
 		} else {
 			currentCameraIndex = 0;
 		}
-	} else {
-		changedCamera = 10;	
 	}
 	
-	//view_set_camera(view_hport[0], currentCamerasObject[currentCameraIndex].cam);
+	view_set_camera(view_hport[0], currentCamerasObject[currentCameraIndex].cam);
 	// CURRENT_CAMERA = currentCamerasObject[currentCameraIndex].cam;
 	activeCamera = currentCameraIndex;	
 }

@@ -27,3 +27,12 @@ for(var i = 0; i < menuItems; i++) {
 	draw_set_color(col);
 	draw_text(xx,yy,text);
 }
+
+draw_set_color(c_black);
+draw_rectangle(
+	800, 
+	400,
+	1000,
+	800,
+
+	false);

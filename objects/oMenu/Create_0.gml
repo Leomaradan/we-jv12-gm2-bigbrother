@@ -18,11 +18,16 @@ menuControl = true;
 //menu[1] = "Options";
 //menu[0] = "Quit";
 
+// Inverse order !
 menu = [
 	"Quit",
 	"New Game"
 ]
 
-
 menuItems = array_length(menu);
+
+menuTop = menuY - ((menuItemHeight * 1.5) * menuItems);
+
 menuCursor = menuItems - 1;
+
+audio_play_sound(snMusicMenu, 10, true, 0.2);
