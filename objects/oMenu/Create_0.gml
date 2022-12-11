@@ -2,11 +2,12 @@
 
 guiWidth = display_get_gui_width();
 guiHeight = display_get_gui_height();
-guiMargin = 32;
+guiXMargin = 32;
+guiYMargin = 128;
 
 menuX = guiWidth + 200;
-menuY = guiHeight - guiMargin;
-menuXTarget = guiWidth - guiMargin;
+menuY = guiHeight - guiYMargin;
+menuXTarget = guiWidth - guiXMargin;
 menuSpeed = 25; // lower is faster;
 menuFont = fMenu;
 menuItemHeight = font_get_size(menuFont);

@@ -12,6 +12,7 @@ onRope = false;
 //currentCamera = 10; // view_get_camera(view_current);
 currentCameraIndex = -1// view_get_camera(view_current);
 activeCamera = 0;
+changedCamera = -1;
 
 currentCamerasObject = [];
 

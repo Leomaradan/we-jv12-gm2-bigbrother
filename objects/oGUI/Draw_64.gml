@@ -17,10 +17,9 @@ if(frameCounter > 29) {
 //effect_create_above()
 
 with(oPlayer) {
+	var activeCameraObject = currentCamerasObject[currentCameraIndex];
 	
-	var activeCamera = currentCamerasObject[currentCameraIndex];
-	
-	if(activeCamera.status == CameraStatus.ACTIVE) {
+	if(activeCameraObject.status == CameraStatus.ACTIVE) {
 		draw_sprite(sCameraOverlay, animationFrame, 0, 0);
 	} else {
 		draw_sprite(sCameraOff, animationFrame, 0, 0);
@@ -46,10 +45,6 @@ with(oPlayer) {
 		}
 	}
 	
-	/*array_foreach(currentCamerasObject, function(element, index) {
-
-		
-	})*/
-
-
+	draw_set_color(c_black);
+	draw_rectangle(600, 500, 800, 600, false);
 }

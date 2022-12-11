@@ -1,7 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
+event_inherited();
 
-function useComputer() {
+function openGreenGate() {
 	var _instancesNumber = instance_number(oDoorGreen);
 	var _instances = [];
 
@@ -16,4 +15,26 @@ function useComputer() {
 	}
 	
 	sprite_index = sComputerOff;
+	used = true;
+	displayMessage("Green gate is now open");
+
+	
 }
+
+function noGreenKey() {
+	displayMessage("You don't have\nthe green key");
+}
+
+function useComputer() {
+	if(!used) {
+		with(oPlayer) {
+			if(greenKey) {
+				other.openGreenGate();	
+				greenKey = false;
+			} else {
+				other.noGreenKey();
+			}
+		}
+	}
+}
+

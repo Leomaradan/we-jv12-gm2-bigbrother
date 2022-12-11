@@ -5,6 +5,7 @@ draw_flush();
 
 draw_set_color(c_white);
 variables = [
+	// ["changedCamera", changedCamera],
 	//["_key_left", _key_left],
 	//["_key_right", _key_right],
 	//["_key_jump", _key_jump],
@@ -12,8 +13,9 @@ variables = [
 	//["_key_up", _key_up],
 	//["_key_down", _key_down],
 	//["_move", _move],
-	//["_touchingFloor", _touchingFloor],
-	//["_onLadder", _onLadder],
+	["_touchingFloor", _touchingFloor],
+	["_onLadder", _onLadder],
+	["_onTopLadder", _onTopLadder],
 	//["_canTakeRope", _canTakeRope],
 	//["_affectedByGravity", _affectedByGravity],
 	//["_mouse_left_click", _mouse_left_click],*/
@@ -23,23 +25,23 @@ variables = [
 	//["onRope", onRope],
 	//["meeting_horizontal", meeting_horizontal],
 	//["meeting_vertical", meeting_vertical],
-	["currentCameraIndex", currentCameraIndex],
+	//["currentCameraIndex", currentCameraIndex],
 	//["activeCamera", activeCamera],
-	["_previousCameraIndex", _previousCameraIndex],	
-	["_nextCameraIndex", _nextCameraIndex],
-	["NB_CAMERA", NB_CAMERA],
+	//["_previousCameraIndex", _previousCameraIndex],	
+	//["_nextCameraIndex", _nextCameraIndex],
+	//["NB_CAMERA", NB_CAMERA],
 	//["FIRST_CAMERA", FIRST_CAMERA],
 	//["LAST_CAMERA", LAST_CAMERA],*/
 	//["ActionStates", state]
 
 ];
 
-function arrayDebugCamera(element, index) {
+/*function arrayDebugCamera(element, index) {
 	var cameraDebug = ["camera" + string(index), element.cam];
 	array_push(variables, cameraDebug); 
 }
 
-array_foreach(currentCamerasObject, arrayDebugCamera);
+array_foreach(currentCamerasObject, arrayDebugCamera);*/
 
 // array_map(variables, debugGUI);
 

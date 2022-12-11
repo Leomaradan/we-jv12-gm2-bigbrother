@@ -38,11 +38,12 @@ if(!started && (_key_left || _key_right || _key_jump)) {
 state = ActionStates.IDLE;
 _move = _key_right - _key_left; // Calculate movement.
 _touchingFloor = place_meeting(x, y+1, oWall);
-_onLadder = place_meeting(x, y+1, oLadder);
+_onLadder = place_meeting(x, y, oLadder);
+_onTopLadder = place_meeting(x, y+1, oLadder);
 _canTakeRope = place_meeting(x, y-16, oRope);
 _canUseComputer = place_meeting(x, y+1, oComputer);
 
-_affectedByGravity = !(_onLadder || onRope); // Indicate if the gravity must be active (not active in ladder and rope)
+_affectedByGravity = !(_onTopLadder || onRope); // Indicate if the gravity must be active (not active in ladder and rope)
 
 _offsetMeetingY = 0;
 
@@ -75,7 +76,7 @@ if (_touchingFloor && _canTakeRope && (_key_interract || _key_up)) {
 	state = ActionStates.INTERRACT;	
 	cooldownInterraction = 60;
 }*/
-if(_canUseComputer && greenKey && _key_interract && cooldownInterraction = -1) {
+if(_canUseComputer && _key_interract && cooldownInterraction = -1) {
 	cooldownInterraction = 60;
 	hasControl = false;
 }
@@ -85,12 +86,14 @@ if(cooldownInterraction >= 0) {
 	cooldownInterraction--;
 }
 
-if(_canUseComputer && greenKey && cooldownInterraction == 0) {
+if(_canUseComputer && cooldownInterraction == 0) {
 	cooldownInterraction = -1;
-	with(oComputerGreen) {
+	
+	var computer = instance_nearest(x, y, oComputer);
+	with(computer) {
 		useComputer();
 	}
-	greenKey = false;
+	// greenKey = false;
 	hasControl = true;
 }
 
@@ -104,8 +107,10 @@ if (onRope) {
 if(_onLadder) {
 	if(!_touchingFloor) {
 		state = ActionStates.CLIMB;	
-	}
-	
+	}	
+}
+
+if(_onTopLadder) {
 	if(_key_up) {
 		verticalSpeed = -walkSpeed;	
 	} else if(_key_down) {
@@ -218,10 +223,20 @@ if(horizontalSpeed != 0) {
 NB_CAMERA = array_length(currentCamerasObject);
 // FIRST_CAMERA = currentCamerasObject[0];
 // LAST_CAMERA = currentCamerasObject[NB_CAMERA - 1];
-CURRENT_CAMERA = 0;
+// CURRENT_CAMERA = 0;
+
+if(changedCamera > 0) {
+	changedCamera--;	
+}
+
+if(changedCamera == 5) {
+	view_set_camera(view_hport[0], currentCamerasObject[currentCameraIndex].cam);
+}
 
 if(activeCamera != currentCameraIndex) {
 	if(currentCameraIndex == -1) {
+		
+		changedCamera = 5;
 		
 		for (var i = 0; i < instance_number(oCamera); ++i;)
 		{
@@ -237,10 +252,12 @@ if(activeCamera != currentCameraIndex) {
 		} else {
 			currentCameraIndex = 0;
 		}
+	} else {
+		changedCamera = 10;	
 	}
 	
-	view_set_camera(view_hport[0], currentCamerasObject[currentCameraIndex].cam);
-	CURRENT_CAMERA = currentCamerasObject[currentCameraIndex].cam;
+	//view_set_camera(view_hport[0], currentCamerasObject[currentCameraIndex].cam);
+	// CURRENT_CAMERA = currentCamerasObject[currentCameraIndex].cam;
 	activeCamera = currentCameraIndex;	
 }
 
