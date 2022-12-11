@@ -29,7 +29,7 @@ if(menuX > guiWidth + 150 && menuCommitted != -1) {
 	switch(menuCommitted) {
 		case 2: 
 		default: 	
-			slideTransition(Transition.GOTO, rTest); break;
+			slideTransition(Transition.GOTO, rTuto1); break;
 		case 0:
 			game_end();
 			break;

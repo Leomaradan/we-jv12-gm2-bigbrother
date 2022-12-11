@@ -1,0 +1,1 @@
+cooldownCommand = 0;

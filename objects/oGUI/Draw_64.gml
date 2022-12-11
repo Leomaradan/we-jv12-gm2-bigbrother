@@ -28,7 +28,7 @@ with(oPlayer) {
 	
 	var maxIndexActive = array_length(currentCamerasObject);
 	
-	for(var index = 0; index < 12; index++) {
+	for(var index = 0; index < 10; index++) {
 		
 		var drawY = floor(index / 2) * 100;
 		var drawX = ((index % 2) * 100) + 600;

@@ -2,7 +2,10 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "oTransition",
-  "spriteId": null,
+  "spriteId": {
+    "name": "sGameMecanisms",
+    "path": "sprites/sGameMecanisms/sGameMecanisms.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,

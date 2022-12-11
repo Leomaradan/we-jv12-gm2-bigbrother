@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oWarp",
+  "name": "oWarpNext",
   "spriteId": {
     "name": "sWarp",
     "path": "sprites/sWarp/sWarp.yy",

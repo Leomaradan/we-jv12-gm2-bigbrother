@@ -39,7 +39,7 @@ function arrayDebugCamera(element, index) {
 	array_push(variables, cameraDebug); 
 }
 
-//array_foreach(currentCamerasObject, arrayDebugCamera);
+array_foreach(currentCamerasObject, arrayDebugCamera);
 
-array_map(variables, debugGUI);
+// array_map(variables, debugGUI);
 

@@ -8,7 +8,9 @@ enum Transition {
 	NEXT,
 	GOTO,
 	RESTART,
-	INTRO
+	INTRO,
+	MENU,
+	EXIT_MENU
 }
 
 mode = Transition.INTRO
