@@ -5,7 +5,8 @@ if(started) {
 	alarmTimer -= detectionSpeed;
 
 	if(alarmTimer <= 0) {
-		audio_play_sound(exotic_diminish, 10, false);
+		audio_stop_sound(snAlertCamera);
+		audio_play_sound(snGameOver, 10, false);
 		room_restart();	
 	}
 

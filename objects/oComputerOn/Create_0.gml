@@ -10,7 +10,7 @@ function toggleCamera() {
 			status = CameraStatus.ACTIVE;	
 		}
 	}
-	audio_play_sound(basic_b2, 10, false);
+	audio_play_sound(snComputerExecute, 10, false);
 	displayMessage("Camera 4 has been toggled")
 }
 

@@ -46,5 +46,5 @@ with(oPlayer) {
 	}
 	
 	draw_set_color(c_black);
-	draw_rectangle(600, 500, 800, 600, false);
+	//draw_rectangle(600, 500, 800, 600, false);
 }

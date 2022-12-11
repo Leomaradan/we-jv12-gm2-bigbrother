@@ -7,14 +7,14 @@ function enterGame() {
 	// screenShaker(4,30);
 	menuControl = false;
 	audio_stop_sound(snMusicMenu);
-	audio_play_sound(alert_echofail, 10, false);
+	audio_play_sound(snStartGame, 10, false);
 	audio_play_sound(snMusic, 10, true, 0.2);
 }
 
 // Keyboard Controls
 if(menuControl) {
 	if(keyboard_check_pressed(vk_up)) {
-		audio_play_sound(click_wood_bleep, 10, false);
+		audio_play_sound(snClickMenu, 10, false);
 		menuCursor++;	
 		if(menuCursor >= menuItems) {
 			menuCursor = 0;	
@@ -23,7 +23,7 @@ if(menuControl) {
 	
 	if(keyboard_check_pressed(vk_down)) {
 		menuCursor--;	
-		audio_play_sound(click_wood_bleep, 10, false);
+		audio_play_sound(snClickMenu, 10, false);
 		if(menuCursor < 0) {
 			menuCursor = menuItems - 1;	
 		}
@@ -38,7 +38,7 @@ if(menuControl) {
 	if(mouseYGui < menuY && mouseYGui > menuTop) {
 		var newMenuCursor = (menuY - mouseYGui) div (menuItemHeight * 1.5);
 		if(menuCursor != newMenuCursor) {
-			audio_play_sound(click_wood_bleep, 10, false);
+			audio_play_sound(snClickMenu, 10, false);
 			menuCursor = newMenuCursor;
 		}
 		
