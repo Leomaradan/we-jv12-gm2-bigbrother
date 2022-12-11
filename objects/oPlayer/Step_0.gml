@@ -25,6 +25,15 @@ if(hasControl) {
 }
 #endregion
 
+if(!started && (_key_left || _key_right || _key_jump)) {
+	if(instance_exists(oAlarm)) {
+		with(oAlarm) {
+			started = true;	
+		}
+	}
+	started = true;	
+}
+
 #region Calculate states and movements
 state = ActionStates.IDLE;
 _move = _key_right - _key_left; // Calculate movement.

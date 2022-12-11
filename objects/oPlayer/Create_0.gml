@@ -47,3 +47,5 @@ enum ActionStates {
 }
 
 state = ActionStates.IDLE;
+
+started = false; // Set to true after the first game interraction

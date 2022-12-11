@@ -9,4 +9,6 @@ draw_sprite_part(sAlarm, 0, 0, 0, percent * 200, 32, 600, 600 - 32);
 draw_set_font(fMenu);
 draw_set_halign(fa_left);
 draw_set_valign(fa_bottom);
-draw_text(600, 600 - 32, "Detection")
+if(started) {
+	draw_text(620, 600 - 32, "Detection");
+}
