@@ -1,4 +1,5 @@
 # Don't Get Caught! Big Brother is Watching You
+https://mcradane.itch.io/dont-get-caught
 
 This is a prototype of game made during the 12th weekend of game programming for the website Developpez.com. The theme where "play with camera" and "big brother".
 
@@ -14,11 +15,13 @@ Each levels had some alarm running, and beining detected reset the level. Beware
 - `Right Arrow` or `D` for walking to right
 - `Space` for jumping
 - `Up Arrow`, `W` or `Z` for climbing ladder
-- `Down Arrow` or `S` for descending
+- `Down Arrow` or `S` for descending a ladder or a rope
 - `Shift` for using a computer
-- `Shift` or `Up Arrow` for using a rope
+- `Shift`, `Up Arrow`, `W` or `Z` for using a rope
+- `R` to restart the level
+- `Ctrl + F` to toggle fullscreen
+- `Escape` to display menu
 - Mouse's `Left Click` and `Right Click` for switching cameras
-
 
 ## Engine & Assets
 The game use GameMaker Studio 2.3, and my assets has been created with Gimp
