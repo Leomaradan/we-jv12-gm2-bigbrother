@@ -1,16 +1,14 @@
 /// @description  Approach(start, end, shift);
 /// @function  Approach
-/// @param start
-/// @param  end
-/// @param  shift
-function Approach(argument0, argument1, argument2) {
+/// @param {Real} _start
+/// @param {Real} _end
+/// @param {Real} _shift
+function Approach(_start, _end, _shift) {
 
-	if (argument0 < argument1)
-	    return min(argument0 + argument2, argument1); 
-	else
-	    return max(argument0 - argument2, argument1);
-
-
-
+	if (_start < _end) {
+	    return min(_start + _shift, _end); 
+	} else  {
+	    return max(_start - _shift, _end);
+	}
 
 }
